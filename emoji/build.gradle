@@ -5,7 +5,16 @@ plugins {
   alias(libs.plugins.kotlin.android)
   alias(libs.plugins.kotlin.parcelize)
   alias(libs.plugins.publish)
+  alias(libs.plugins.metalava)
 }
+
+metalava {
+  filename = "api/current.txt"
+  sourcePaths = ["src/main"]
+  // https://github.com/tylerbwong/metalava-gradle/pull/36/files
+  // hiddenAnnotations = ["kotlin.Deprecated"]
+}
+
 
 android {
   namespace "com.vanniktech.emoji"
